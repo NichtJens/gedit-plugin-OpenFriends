@@ -1,0 +1,11 @@
+[Plugin]
+Loader=python3
+Module=OpenFriend
+IAge=3
+Icon=gtk-index
+Name=Open Friend
+Description=Open the header belonging to a source, and vice versa
+Authors=Sven Augustin
+Copyright=Copyright © 2015 Sven Augustin
+Website=https://github.com/NichtJens/gedit-plugin-OpenFriends
+Version=0.0.1
