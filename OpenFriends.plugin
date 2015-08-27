@@ -1,9 +1,9 @@
 [Plugin]
 Loader=python3
-Module=OpenFriend
+Module=OpenFriends
 IAge=3
 Icon=gtk-index
-Name=Open Friend
+Name=Open Friends
 Description=Open the header belonging to a source, and vice versa
 Authors=Sven Augustin
 Copyright=Copyright © 2015 Sven Augustin
