@@ -27,7 +27,7 @@ class ExamplePlugin04(GObject.Object, Gedit.WindowActivatable):
         self._actions = Gtk.ActionGroup("OpenFriendsActions")
         self._actions.add_actions([(
             'OpenFriendsAction', Gtk.STOCK_INDEX,
-            "Open _Friends", None,
+            "Open _Friends", "<Ctrl><Alt>O",
             "Open the header belonging to a source, and vice versa",
             self.on_action_activate
             )])
