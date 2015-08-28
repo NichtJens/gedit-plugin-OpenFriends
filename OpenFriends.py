@@ -15,7 +15,7 @@ UI_XML = """
 </ui>
 """
 
-class ExamplePlugin04(GObject.Object, Gedit.WindowActivatable):
+class OpenFriendsPlugin(GObject.Object, Gedit.WindowActivatable):
     __gtype_name__ = "OpenFriendsPlugin"
     window = GObject.property(type=Gedit.Window)
 
@@ -23,14 +23,16 @@ class ExamplePlugin04(GObject.Object, Gedit.WindowActivatable):
         GObject.Object.__init__(self)
 
     def _add_ui(self):
-        manager = self.window.get_ui_manager()
+        action = Gtk.Action("OpenFriendsAction",
+                            "Open _Friends",
+                            "Open the header belonging to a source, and vice versa",
+                            Gtk.STOCK_INDEX)
+        action.connect("activate", self.on_action_activate)
+
         self._actions = Gtk.ActionGroup("OpenFriendsActions")
-        self._actions.add_actions([(
-            'OpenFriendsAction', Gtk.STOCK_INDEX,
-            "Open _Friends", "<Ctrl><Alt>O",
-            "Open the header belonging to a source, and vice versa",
-            self.on_action_activate
-            )])
+        self._actions.add_action_with_accel(action, "<Ctrl><Alt>O")
+
+        manager = self.window.get_ui_manager()
         manager.insert_action_group(self._actions)
         self._ui_merge_id = manager.add_ui_from_string(UI_XML)
         manager.ensure_update()
