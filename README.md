@@ -8,8 +8,7 @@ A gedit plugin that opens the respective header for a C/C++ source file and vice
 *For your account only:*
 
 Copy `OpenFriends.p*` to
-- `~/.local/share/gedit/plugins/` 
-
+- `~/.local/share/gedit/plugins/` (create directory if necessary)
 
 *For all accounts:*
 
