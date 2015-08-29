@@ -101,3 +101,5 @@ def re_either(c):
 
 def insensitive_glob(pattern):
     return glob.glob("".join(re_either(c) for c in pattern))
+
+
