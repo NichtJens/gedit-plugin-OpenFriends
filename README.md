@@ -19,13 +19,18 @@ Depending on your system, copy `OpenFriends.p*` to
 - `/usr/lib/x86_64-linux-gnu/gedit/plugins/`
 
 
-Depending on the version of gedit, subfolders are also taken into account. Thus, you can clone the repository directly into one of the above folders...
+Depending on the version of gedit, subfolders are also taken into account.
+Thus, you can clone this repository directly into one of the above folders...
 
 
 ## Usage
 
 Activate in `Edit->Preferences->Plugins`
 
-Use from menu entry in `Tools`
+Use from menu entry in `Tools` or via the keyboard shortcut Ctrl+Alt+O.
 
+
+## Troubleshooting
+
+In case activating the plugin in the preferences leads to the `Plugin loader 'python3' was not found` error (the icon changes, hovering the cursor over it shows the error), open `OpenFriends.plugin`, change the `Loader` line from `python3` to `python`, and retry.
 
