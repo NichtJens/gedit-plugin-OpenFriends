@@ -64,14 +64,14 @@ class OpenFriendsPlugin(GObject.Object, Gedit.WindowActivatable):
         loc_ext  = loc_list[-1].lower()
 
         friends_list  = [("c", "cxx", "cpp", "h")]
-        friends_list += [("tex", "bib")]
+#        friends_list += [("tex", "bib")]
 
         new_locations = []
         for friends in friends_list:
             if loc_ext in friends:
-                others = [f for f in friends if f != loc_ext]
+                others = (f for f in friends if f != loc_ext)
                 for other_ext in others:
-                    new_locations += insensitive_glob(loc_base + "." + other_ext)
+                    new_locations += insensitive_glob(loc_base + SEP_DOT + other_ext)
 
         # if loc_ext.startswith("c"):
         #     new_locations = insensitive_glob(loc_base + ".h*")
