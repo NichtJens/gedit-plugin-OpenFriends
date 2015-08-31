@@ -63,13 +63,13 @@ class OpenFriendsPlugin(GObject.Object, Gedit.WindowActivatable):
         loc_base = SEP_DOT.join(loc_list[:-1])
         loc_ext  = loc_list[-1].lower()
 
-        friends_list  = [("c", "cxx", "cpp", "h")]
-#        friends_list += [("tex", "bib")]
+        friendships  = [("c", "cxx", "cpp", "h")]
+#        friendships += [("tex", "bib")]
 
         new_locations = []
-        for friends in friends_list:
-            if loc_ext in friends:
-                others = (f for f in friends if f != loc_ext)
+        for clique in friendships:
+            if loc_ext in clique:
+                others = (f for f in clique if f != loc_ext)
                 for other_ext in others:
                     new_locations += insensitive_glob(loc_base + SEP_DOT + other_ext)
 
@@ -83,8 +83,8 @@ class OpenFriendsPlugin(GObject.Object, Gedit.WindowActivatable):
         if not new_locations:
             return
 
-        for new_location in new_locations:
-            new_file = Gio.file_new_for_path(new_location)
+        for new_loc in new_locations:
+            new_file = Gio.file_new_for_path(new_loc)
 
             tab = self.window.get_tab_from_location(new_file)
             if tab:
